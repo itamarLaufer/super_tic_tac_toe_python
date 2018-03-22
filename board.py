@@ -1,13 +1,15 @@
+from sign import Sign
+
 
 class Board:
-    '''generic board of 3X3 which can represent a classic tic tac toe board
-    and also a board made of other boards which used in super tic tac toe'''
+    ''' generic board of 3X3 which can represent a classic tic tac toe board
+    and also a board made of other boards which used in super tic tac toe '''
 
     def __init__(self, empty_square):
         '''function gets the representation of square in the board
         (can be a sign (X/O/-) or a board itself) and returns an empty board'''
         # initialize empty board
-        self.__winner = 'no_one' # replace with enum empty as it's created
+        self.__winner = Sign.E
         self.__squares = [0,0,0] # 3 rows
         self.__squares[0] = [empty_square, empty_square, empty_square]
         self.__squares[1] = [empty_square, empty_square, empty_square]
@@ -42,8 +44,3 @@ class Board:
             res += str(i)
             res += '\n'
         return res
-
-
-classic_board = Board('-')
-classic_board.insert('X',2,0)
-print(classic_board)
